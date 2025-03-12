@@ -1,0 +1,348 @@
+<?php
+// Authentication check
+require_once 'auth_check.php';
+?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Learn data loading fundamentals in Qlik - Connect to different data sources, create data models, and understand Qlik's data loading process.">
+    <meta name="keywords" content="Qlik data loading, Qlik data model, Qlik data connections, QVD files, Qlik script">
+    <title>Chapter 2: Data Loading Fundamentals | Qlik Beginners</title>
+    <link rel="stylesheet" href="../styles.css">
+    <!-- Font Awesome for icons -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js"></script>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="navbar">
+                <a href="../index.html" class="logo">Qlik Beginners</a>
+                <div class="nav-links">
+                    <a href="../index.html">Home</a>
+                    <a href="../learn.html" class="active">Learn Basics</a>
+                    <a href="../learn.html#resources">Resources</a>
+                    <a href="../index.html#feedback">Feedback</a>
+                    <a href="../logout.php">Logout</a>
+                </div>
+            </div>
+            <div class="page-header">
+                <h1>Chapter 2: Data Loading Fundamentals</h1>
+                <p>Learn how to connect to different data sources and create robust data models in Qlik</p>
+            </div>
+        </div>
+    </header>
+
+    <main class="container">
+        <div class="chapter-nav">
+            <a href="../chapter1.html" class="nav-prev">
+                <i class="fas fa-arrow-left"></i> Previous: Getting Started with Qlik
+            </a>
+            <a href="chapter3.php" class="nav-next">
+                Next: Building Your First Sheet <i class="fas fa-arrow-right"></i>
+            </a>
+        </div>
+        
+        <div class="chapter-content">
+            <div class="toc">
+                <h3>Table of Contents</h3>
+                <ul>
+                    <li><a href="#overview">2.1 Understanding Data Loading in Qlik</a></li>
+                    <li><a href="#sources">2.2 Connecting to Data Sources</a></li>
+                    <li><a href="#data-manager">2.3 Using the Data Manager</a></li>
+                    <li><a href="#data-load-editor">2.4 Introduction to the Data Load Editor</a></li>
+                    <li><a href="#script-basics">2.5 Script Basics</a></li>
+                    <li><a href="#associations">2.6 Creating Associations Between Tables</a></li>
+                    <li><a href="#best-practices">2.7 Data Loading Best Practices</a></li>
+                </ul>
+            </div>
+            
+            <h2 id="overview">2.1 Understanding Data Loading in Qlik</h2>
+            <p>Data loading is one of the most critical aspects of creating a successful Qlik application. Before you can visualize and analyze data, you need to load it into Qlik's associative engine. In this chapter, we'll explore how Qlik's data loading process works and the various methods for bringing data into your applications.</p>
+            
+            <div class="note-box">
+                <p><strong>Premium Content Notice:</strong> This chapter is part of our premium subscription. Thank you for supporting Qlik Beginners!</p>
+            </div>
+            
+            <p>Qlik's approach to data loading is different from many other BI tools. Instead of connecting directly to source systems for every query, Qlik loads all the data into memory. This in-memory approach offers several advantages:</p>
+            
+            <ul>
+                <li><strong>Performance</strong> - Data is available instantly for analysis without waiting for database queries</li>
+                <li><strong>Associative engine</strong> - All data relationships are maintained, allowing for non-linear exploration</li>
+                <li><strong>Data transformation</strong> - You can clean, reshape, and enhance your data during the loading process</li>
+                <li><strong>Offline access</strong> - Once loaded, the data is available even without connection to source systems</li>
+            </ul>
+            
+            <h2 id="sources">2.2 Connecting to Data Sources</h2>
+            <p>Qlik can connect to a wide variety of data sources, from simple files to complex databases. Here are the most common data sources used with Qlik:</p>
+            
+            <div class="table-container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Data Source Type</th>
+                            <th>Examples</th>
+                            <th>Best For</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Flat Files</strong></td>
+                            <td>CSV, Excel, TXT, QVD</td>
+                            <td>Simple data sources, extracted data, data exchange</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Databases</strong></td>
+                            <td>SQL Server, Oracle, MySQL, PostgreSQL</td>
+                            <td>Large datasets, transactional systems</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Web Sources</strong></td>
+                            <td>REST APIs, Web Files, HTML Tables</td>
+                            <td>External data, online services</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Big Data</strong></td>
+                            <td>Hadoop, Teradata, Snowflake</td>
+                            <td>Very large datasets, complex analytical systems</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Enterprise Systems</strong></td>
+                            <td>SAP, Salesforce, SharePoint</td>
+                            <td>Business applications and enterprise data</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            
+            <div class="step-box">
+                <h4><span class="step-number">1</span>Connect to Excel Data</h4>
+                <p>Let's practice connecting to a simple Excel file:</p>
+                <ol>
+                    <li>Create a new Qlik Sense app</li>
+                    <li>Click "Add data"</li>
+                    <li>Select "Excel" from the data connections list</li>
+                    <li>Browse to your Excel file and select it</li>
+                    <li>You'll see a preview of the tables in the file</li>
+                    <li>Select the tables you wish to import</li>
+                    <li>Click "Add data" to load the selected tables</li>
+                </ol>
+            </div>
+            
+            <h2 id="data-manager">2.3 Using the Data Manager</h2>
+            <p>The Data Manager is Qlik's visual interface for loading and preparing data. It's designed to be user-friendly, making it ideal for beginners. With the Data Manager, you can:</p>
+            
+            <ul>
+                <li>Connect to various data sources</li>
+                <li>Preview data before loading</li>
+                <li>Combine multiple tables</li>
+                <li>Create associations between tables</li>
+                <li>Profile your data to identify quality issues</li>
+                <li>Apply basic transformations without scripting</li>
+            </ul>
+            
+            <div class="image-container">
+                <img src="/api/placeholder/800/450" alt="Qlik Sense Data Manager Interface">
+                <span class="image-caption">The Qlik Sense Data Manager interface showing data preview and associations</span>
+            </div>
+            
+            <div class="caution-box">
+                <p>While the Data Manager is an excellent starting point, it has limitations for complex data models. As you advance in your Qlik journey, you'll likely need to use the Data Load Editor for more complex transformations and loads.</p>
+            </div>
+            
+            <h2 id="data-load-editor">2.4 Introduction to the Data Load Editor</h2>
+            <p>The Data Load Editor is where you'll write scripts to load and transform data. It gives you complete control over the data loading process, allowing for complex transformations, calculations, and data model design.</p>
+            
+            <p>To access the Data Load Editor:</p>
+            <ol>
+                <li>Open your app</li>
+                <li>Click "Prepare" in the navigation menu (or "Data manager" button)</li>
+                <li>Click "Data load editor" button in the bottom right</li>
+            </ol>
+            
+            <div class="image-container">
+                <img src="/api/placeholder/800/450" alt="Qlik Sense Data Load Editor">
+                <span class="image-caption">The Data Load Editor showing a sample load script</span>
+            </div>
+            
+            <p>The Data Load Editor consists of several key components:</p>
+            <ul>
+                <li><strong>Data connections panel</strong> - Lists available connections to data sources</li>
+                <li><strong>Script editor</strong> - Where you write your load script</li>
+                <li><strong>Toolbar</strong> - Contains functions for editing, debugging, and running the script</li>
+                <li><strong>Tabs</strong> - Helps organize your script into logical sections</li>
+            </ul>
+            
+            <h2 id="script-basics">2.5 Script Basics</h2>
+            <p>The Qlik load script uses a specific syntax that combines SQL-like statements with Qlik's own scripting language. Here are some fundamental concepts:</p>
+            
+            <h3>Basic Script Structure</h3>
+            <div class="chapter-content">
+                <pre>
+// Comments start with double slashes
+
+// Connect to a data source
+LIB CONNECT TO 'MyConnection';
+
+// Load data from a table
+LOAD 
+    Field1,
+    Field2,
+    Field3 as RenamedField
+FROM [lib://MyConnection/MyTable.csv]
+(txt, codepage is 1252, embedded labels, delimiter is ',');
+
+// Create a calculated field in another table
+LOAD
+    ID,
+    Amount,
+    Date,
+    Amount * 1.1 as AmountWithTax
+FROM [lib://MyConnection/Sales.xlsx]
+(ooxml, embedded labels, table is Sheet1);
+
+// Store the data for faster loading next time
+STORE Sales INTO [lib://MyConnection/Sales.qvd];
+                </pre>
+            </div>
+            
+            <h3>Key Script Commands</h3>
+            <ul>
+                <li><strong>LOAD</strong> - Loads data from a file or generates data</li>
+                <li><strong>SELECT</strong> - Retrieves data from a database using SQL</li>
+                <li><strong>STORE</strong> - Saves loaded tables to QVD files for faster future loading</li>
+                <li><strong>JOIN</strong> - Combines tables based on matching fields</li>
+                <li><strong>CONCATENATE</strong> - Appends one table to another</li>
+                <li><strong>MAP</strong> - Creates a mapping table for lookups</li>
+                <li><strong>RENAME FIELD</strong> - Changes a field name</li>
+                <li><strong>DROP TABLE</strong> - Removes a table from memory</li>
+                <li><strong>LET</strong> - Assigns a value to a variable</li>
+            </ul>
+            
+            <div class="step-box">
+                <h4><span class="step-number">2</span>Write Your First Load Script</h4>
+                <p>Let's create a simple load script to import some data:</p>
+                <ol>
+                    <li>Open the Data Load Editor in your app</li>
+                    <li>Add this script to load data from an Excel file:</li>
+                    <pre>
+LOAD
+    Customer,
+    Order_ID,
+    Amount,
+    Date
+FROM [lib://Data/Orders.xlsx]
+(ooxml, embedded labels, table is Orders);
+
+LOAD
+    Product_ID,
+    Product_Name,
+    Category,
+    Price
+FROM [lib://Data/Products.xlsx]
+(ooxml, embedded labels, table is Products);
+                    </pre>
+                    <li>Click "Load data" to execute the script</li>
+                </ol>
+            </div>
+            
+            <h2 id="associations">2.6 Creating Associations Between Tables</h2>
+            <p>One of Qlik's most powerful features is its associative model, which maintains relationships between data tables. Tables are automatically associated when they share field names, but you can also explicitly define associations.</p>
+            
+            <h3>Automatic Associations</h3>
+            <p>When tables share fields with the same name, Qlik automatically creates associations between them. For example, if both your Orders table and Products table have a field called "Product_ID", they will be associated.</p>
+            
+            <h3>Manual Associations</h3>
+            <p>If your fields have different names but should be linked, you can rename fields during the load process:</p>
+            
+            <div class="chapter-content">
+                <pre>
+LOAD
+    Customer,
+    Order_ID,
+    Product as Product_ID, // Renamed to match the Products table
+    Amount,
+    Date
+FROM [lib://Data/Orders.xlsx]
+(ooxml, embedded labels, table is Orders);
+                </pre>
+            </div>
+            
+            <div class="image-container">
+                <img src="/api/placeholder/800/450" alt="Qlik Data Model Viewer">
+                <span class="image-caption">The Data Model Viewer showing associations between tables</span>
+            </div>
+            
+            <h2 id="best-practices">2.7 Data Loading Best Practices</h2>
+            <p>As you develop your Qlik skills, keep these best practices in mind:</p>
+            
+            <ul>
+                <li><strong>Use QVD files</strong> for intermediate storage to improve load performance</li>
+                <li><strong>Minimize the number of fields</strong> you load to only what's needed</li>
+                <li><strong>Apply transformations during the load</strong> rather than in visualizations</li>
+                <li><strong>Use proper naming conventions</strong> for fields and tables</li>
+                <li><strong>Add comments</strong> to document your script</li>
+                <li><strong>Organize your script</strong> into logical sections using tabs</li>
+                <li><strong>Include error handling</strong> for more robust scripts</li>
+                <li><strong>Test incrementally</strong> rather than writing a long script before testing</li>
+            </ul>
+            
+            <div class="note-box">
+                <p><strong>Practice Exercise:</strong> Create a new Qlik app and load data from at least two different sources (such as an Excel file and a CSV file). Make sure they share at least one field to create an association, then view the data model to confirm they're linked correctly.</p>
+            </div>
+            
+            <h3>Next Steps</h3>
+            <p>Now that you understand the basics of data loading in Qlik, you're ready to start creating visualizations with that data. In the next chapter, we'll explore how to build your first sheet with tables, charts, and filters to start analyzing your data visually.</p>
+        </div>
+        
+        <div class="chapter-nav">
+            <a href="../chapter1.html" class="nav-prev">
+                <i class="fas fa-arrow-left"></i> Previous: Getting Started with Qlik
+            </a>
+            <a href="chapter3.php" class="nav-next">
+                Next: Building Your First Sheet <i class="fas fa-arrow-right"></i>
+            </a>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="social-links">
+                <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                <a href="#" class="social-link"><i class="fab fa-linkedin"></i></a>
+                <a href="#" class="social-link"><i class="fab fa-github"></i></a>
+                <a href="#" class="social-link"><i class="fab fa-youtube"></i></a>
+            </div>
+            <p>© <span id="year">2025</span> Qlik Beginners. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <a href="#" class="back-to-top" id="back-to-top">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+
+    <script>
+        // Update copyright year
+        document.getElementById('year').textContent = new Date().getFullYear();
+        
+        // Back to top functionality
+        window.addEventListener('scroll', function() {
+            const backToTop = document.getElementById('back-to-top');
+            if (window.pageYOffset > 300) {
+                backToTop.classList.add('visible');
+            } else {
+                backToTop.classList.remove('visible');
+            }
+        });
+        
+        document.getElementById('back-to-top').addEventListener('click', function(e) {
+            e.preventDefault();
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+    </script>
+</body>
+</html>

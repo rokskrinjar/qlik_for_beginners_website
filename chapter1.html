@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Getting started with Qlik - Learn how to install Qlik Sense, understand the interface, and create your first app as a beginner.">
+    <meta name="keywords" content="Qlik installation, Qlik Sense tutorial, Qlik interface, Qlik for beginners, get started with Qlik">
+    <title>Chapter 1: Getting Started with Qlik | Qlik Beginners</title>
+    <link rel="stylesheet" href="styles.css">
+    <!-- Font Awesome for icons -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js"></script>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="navbar">
+                <a href="index.html" class="logo">Qlik Beginners</a>
+                <div class="nav-links">
+                    <a href="index.html">Home</a>
+                    <a href="learn.html" class="active">Learn Basics of Qlik Sense</a>
+                    <a href="learn.html#resources">Resources</a>
+                    <a href="index.html#feedback">Feedback</a>
+                </div>
+            </div>
+            <div class="page-header">
+                <h1>Chapter 1: Getting Started with Qlik</h1>
+                <p>Your first steps to understanding and using Qlik's powerful data visualization tools</p>
+            </div>
+        </div>
+    </header>
+
+    <main class="container">
+        <div class="chapter-nav">
+            <a href="learn.html" class="nav-prev">
+                <i class="fas fa-arrow-left"></i> Back to Learning Path
+            </a>
+            <a href="login.php" class="nav-next">
+                Next: Data Loading Fundamentals <i class="fas fa-arrow-right"></i>
+            </a>
+        </div>
+        
+        <div class="chapter-content">
+            <div class="toc">
+                <h3>Table of Contents</h3>
+                <ul>
+                    <li><a href="#introduction">1.1 Introduction to Qlik</a></li>
+                    <li><a href="#versions">1.2 Qlik Versions and Offerings</a></li>
+                    <li><a href="#installation">1.3 Installing Qlik Sense Desktop</a></li>
+                    <li><a href="#interface">1.4 Understanding the Interface</a>
+                        <ul>
+                            <li><a href="#hub">The Hub</a></li>
+                            <li><a href="#app-overview">App Overview</a></li>
+                            <li><a href="#sheet-view">Sheet View</a></li>
+                            <li><a href="#edit-mode">Edit Mode</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#first-app">1.5 Creating Your First Qlik App</a></li>
+                    <li><a href="#next-steps">1.6 Next Steps</a></li>
+                </ul>
+            </div>
+            
+            <h2 id="introduction">1.1 Introduction to Qlik</h2>
+            <p>Qlik is a powerful business intelligence (BI) platform that allows users to create interactive visualizations, dashboards, and analytical apps. Unlike traditional BI tools that follow a predefined path of questioning, Qlik's associative analytics engine enables users to explore data freely, making discoveries and finding insights that would otherwise be missed.</p>
+            
+            <p>What makes Qlik special is its associative data indexing approach. Rather than relying on predefined queries or hierarchies, Qlik maintains the relationships between all data points in memory. This means when you make a selection, all related data is instantly highlighted, while unrelated data is shown as such, helping you understand not just what's directly related, but also what's unrelated to your selection.</p>
+            
+            <div class="note-box">
+                <p><strong>Why Learn Qlik?</strong> In today's data-driven world, the ability to analyze and visualize data quickly and effectively is increasingly valuable. Qlik is used by thousands of organizations worldwide to transform their raw data into actionable insights. As a Qlik developer, you'll be able to create powerful analytics solutions that help businesses make better decisions.</p>
+            </div>
+            
+            <h2 id="versions">1.2 Qlik Versions and Offerings</h2>
+            <p>Before we dive into installation, it's important to understand the different Qlik products available:</p>
+            
+            <div class="table-container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Product</th>
+                            <th>Description</th>
+                            <th>Best For</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Qlik Sense Desktop</strong></td>
+                            <td>Free personal version for Windows</td>
+                            <td>Individual learning, personal projects</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Qlik Sense Enterprise</strong></td>
+                            <td>Full-featured business version</td>
+                            <td>Organizations, team collaboration</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Qlik Sense Cloud</strong></td>
+                            <td>SaaS version with subscription</td>
+                            <td>Quick deployment, minimal IT overhead</td>
+                        </tr>
+                        <tr>
+                            <td><strong>QlikView</strong></td>
+                            <td>Older guided analytics platform</td>
+                            <td>Guided analytical applications</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            
+            <p>In this tutorial series, we'll primarily focus on <strong>Qlik Sense</strong>, which is Qlik's modern self-service analytics platform. Specifically, we'll use Qlik Sense Desktop for our examples as it's free to use and perfect for learning.</p>
+            
+            <div class="caution-box">
+                <p><strong>Note:</strong> Qlik Sense Desktop is only available for Windows. If you're using a Mac or Linux, you can either set up a Windows virtual machine or use Qlik Sense Cloud, which offers a free trial period.</p>
+            </div>
+            
+            <h2 id="installation">1.3 Installing Qlik Sense Desktop</h2>
+            <p>Let's get started by installing Qlik Sense Desktop on your computer:</p>
+            
+            <div class="step-box">
+                <h4><span class="step-number">1</span>Download Qlik Sense Desktop</h4>
+                <p>Visit the <a href="https://www.qlik.com/us/products/qlik-sense-desktop" target="_blank">Qlik Sense Desktop download page</a> and click on the download button. You'll need to create a free Qlik account if you don't already have one.</p>
+            </div>
+            
+            <div class="step-box">
+                <h4><span class="step-number">2</span>Run the Installer</h4>
+                <p>Once the download is complete, run the installer file (QlikSenseDesktop.exe). Accept the license agreement and follow the installation wizard's instructions.</p>
+                <div class="image-container">
+                    <img src="/api/placeholder/650/400" alt="Qlik Sense Desktop Installation Wizard">
+                    <span class="image-caption">Qlik Sense Desktop Installation Wizard</span>
+                </div>
+            </div>
+            
+            <div class="step-box">
+                <h4><span class="step-number">3</span>Complete the Installation</h4>
+                <p>Choose the installation location (the default is usually fine) and complete the installation process. When it's finished, you'll have the option to launch Qlik Sense Desktop immediately.</p>
+            </div>
+            
+            <div class="step-box">
+                <h4><span class="step-number">4</span>Launch Qlik Sense Desktop</h4>
+                <p>When you launch Qlik Sense Desktop for the first time, it will start a local server on your machine. You'll see a system tray icon indicating that Qlik Sense is running, and your default web browser will open, connecting to the local Qlik Sense hub.</p>
+                <p>The URL will typically be something like: <code>http://localhost:4848/hub</code></p>
+            </div>
+            
+            <div class="note-box">
+                <p>Qlik Sense Desktop runs as a local web application. Even though it's using your web browser, all processing happens locally on your computer, and you don't need an internet connection once it's installed.</p>
+            </div>
+            
+            <h2 id="interface">1.4 Understanding the Interface</h2>
+            <p>Now that you have Qlik Sense Desktop installed, let's familiarize ourselves with the main interface components:</p>
+            
+            <h3 id="hub">The Hub</h3>
+            <p>The Hub is your starting point in Qlik Sense. It's where you'll see all your apps and have the option to create new ones. Think of it as your app library or homepage.</p>
+            
+            <div class="image-container">
+                <img src="/api/placeholder/800/450" alt="Qlik Sense Hub Interface">
+                <span class="image-caption">The Qlik Sense Hub showing available apps</span>
+            </div>
+            
+            <p>Key elements of the Hub:</p>
+            <ul>
+                <li><strong>Create new app button</strong> - Used to create a new Qlik Sense app</li>
+                <li><strong>App cards</strong> - Visual representations of your existing apps</li>
+                <li><strong>Collections</strong> - Ways to organize your apps (in Qlik Sense Enterprise)</li>
+            </ul>
+            
+            <h3 id="app-overview">App Overview</h3>
+            <p>When you open an app, you'll first see the App Overview. This gives you a birds-eye view of all the sheets in your app. From here, you can:</p>
+            <ul>
+                <li>Open existing sheets</li>
+                <li>Create new sheets</li>
+                <li>Access the Data Manager and Data Load Editor (in Edit mode)</li>
+            </ul>
+            
+            <h3 id="sheet-view">Sheet View</h3>
+            <p>Sheets are where your visualizations live. Each sheet can contain multiple charts, tables, and filters that work together to provide insights.</p>
+            
+            <div class="image-container">
+                <img src="/api/placeholder/800/450" alt="Qlik Sense Sheet Example">
+                <span class="image-caption">A sample Qlik Sense sheet with multiple visualizations</span>
+            </div>
+            
+            <p>In Sheet View, you can:</p>
+            <ul>
+                <li>Interact with visualizations by making selections</li>
+                <li>Filter data using filter panes</li>
+                <li>Use the selections tool to view and clear your current selections</li>
+                <li>Navigate between sheets using the sheet navigator</li>
+            </ul>
+            
+            <h3 id="edit-mode">Edit Mode</h3>
+            <p>Edit mode is where you create and modify your Qlik Sense app. To enter Edit mode, click the "Edit" button in the top right corner when viewing a sheet.</p>
+            
+            <p>In Edit mode, you'll have access to:</p>
+            <ul>
+                <li><strong>Assets panel</strong> - Contains all available charts, visualizations, and master items</li>
+                <li><strong>Sheet grid</strong> - The layout area where you can place visualizations</li>
+                <li><strong>Properties panel</strong> - Used to configure selected visualizations</li>
+                <li><strong>Data Manager</strong> - For loading and preparing data visually</li>
+                <li><strong>Data Load Editor</strong> - For scripting more complex data loads</li>
+            </ul>
+            
+            <h2 id="first-app">1.5 Creating Your First Qlik App</h2>
+            <p>Now that you understand the basics of the interface, let's create your very first Qlik Sense app:</p>
+            
+            <div class="step-box">
+                <h4><span class="step-number">1</span>Create a New App</h4>
+                <p>From the Hub, click the "Create new app" button. Enter a name for your app, such as "My First Qlik App," and optionally add a description. Click "Create" to proceed.</p>
+            </div>
+            
+            <div class="step-box">
+                <h4><span class="step-number">2</span>Open Your New App</h4>
+                <p>Click on your newly created app to open it. You'll be taken to the App Overview, which is currently empty since we haven't added any sheets yet.</p>
+            </div>
+            
+            <div class="step-box">
+                <h4><span class="step-number">3</span>Add Sample Data</h4>
+                <p>For this first app, we'll use some sample data that comes with Qlik Sense. Click on "Add data" and then select "Sample data" from the options.</p>
+                <p>Choose the "Sales" sample data file and click "Add data" to load it into your app.</p>
+            </div>
+            
+            <div class="step-box">
+                <h4><span class="step-number">4</span>Create Your First Sheet</h4>
+                <p>From the App Overview, click "Create new sheet." Give your sheet a name like "Sales Overview" and click "Create."</p>
+            </div>
+            
+            <div class="step-box">
+                <h4><span class="step-number">5</span>Add Your First Visualization</h4>
+                <p>In Edit mode, you'll see the Assets panel on the left. From the "Charts" section, drag a "Bar chart" onto your sheet.</p>
+                <p>In the properties panel that appears on the right:</p>
+                <ul>
+                    <li>Under Dimensions, add "Product Category"</li>
+                    <li>Under Measures, add "Sum(Sales)"</li>
+                </ul>
+                <p>You should now see a bar chart showing sales by product category.</p>
+            </div>
+            
+            <div class="step-box">
+                <h4><span class="step-number">6</span>Add a Filter</h4>
+                <p>Drag a "Filter pane" from the Assets panel onto your sheet. In the properties panel, add "Region" as a dimension.</p>
+                <p>Now you can filter your bar chart by selecting different regions.</p>
+            </div>
+            
+            <div class="step-box">
+                <h4><span class="step-number">7</span>Save and Done</h4>
+                <p>Click "Done" in the top right corner to exit Edit mode. Your sheet will be saved automatically.</p>
+            </div>
+            
+            <p>Congratulations! You've just created your first Qlik Sense app with a visualization and a filter. Try selecting different regions in the filter pane and watch how your bar chart updates instantly.</p>
+            
+            <div class="image-container">
+                <img src="/api/placeholder/800/450" alt="First Qlik App Example">
+                <span class="image-caption">Example of a simple first Qlik app with a bar chart and filter pane</span>
+            </div>
+            
+            <h2 id="next-steps">1.6 Next Steps</h2>
+            <p>Now that you have a basic understanding of Qlik Sense and have created your first simple app, you're ready to dive deeper into the world of Qlik. In the next chapter, we'll explore data loading in more detail, including:</p>
+            
+            <ul>
+                <li>Understanding different data sources</li>
+                <li>Using the Data Manager for simple data loading</li>
+                <li>Introduction to the Data Load Editor and script basics</li>
+                <li>Creating associations between tables</li>
+            </ul>
+            
+            <div class="note-box">
+                <p><strong>Practice Exercise:</strong> Try expanding your first app by adding more visualizations to your sheet. Experiment with different chart types like pie charts, line charts, and tables. Try using different dimensions and measures to see how they affect your visualizations.</p>
+            </div>
+        </div>
+        
+        <div class="chapter-nav">
+            <a href="learn.html" class="nav-prev">
+                <i class="fas fa-arrow-left"></i> Back to Learning Path
+            </a>
+            <a href="#" class="nav-next">
+                Next: Data Loading Fundamentals <i class="fas fa-arrow-right"></i>
+            </a>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="social-links">
+                <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                <a href="#" class="social-link"><i class="fab fa-linkedin"></i></a>
+                <a href="#" class="social-link"><i class="fab fa-github"></i></a>
+                <a href="#" class="social-link"><i class="fab fa-youtube"></i></a>
+            </div>
+            <p>© <span id="year">2025</span> Qlik Beginners. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <a href="#" class="back-to-top" id="back-to-top">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+
+    <script>
+        // Update copyright year
+        document.getElementById('year').textContent = new Date().getFullYear();
+        
+        // Back to top functionality
+        window.addEventListener('scroll', function() {
+            const backToTop = document.getElementById('back-to-top');
+            if (window.pageYOffset > 300) {
+                backToTop.classList.add('visible');
+            } else {
+                backToTop.classList.remove('visible');
+            }
+        });
+        
+        document.getElementById('back-to-top').addEventListener('click', function(e) {
+            e.preventDefault();
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+    </script>
+</body>
+</html>

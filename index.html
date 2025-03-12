@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Learn Qlik from the ground up. Resources, tips and community for aspiring Qlik developers and beginners.">
+    <meta name="keywords" content="Qlik, Qlik Sense, QlikView, data visualization, BI tools, business intelligence, Qlik beginners, Qlik tutorial">
+    <title>Qlik Beginners | Start Your Data Visualization Journey</title>
+    <link rel="stylesheet" href="styles.css">
+    <!-- Font Awesome for icons -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js"></script>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="navbar">
+                <a href="index.html" class="logo">Qlik Beginners</a>
+                <div class="nav-links">
+                    <a href="index.html" class="active">Home</a>
+                    <a href="learn.html">Learn Basics</a>
+                    <a href="#resources">Resources</a>
+                    <a href="#feedback">Feedback</a>
+                </div>
+            </div>
+            <div class="hero">
+                <h1>Qlik Beginners</h1>
+                <p>Start your journey to becoming a Qlik expert with resources tailored for beginners</p>
+                <a href="#feedback" class="cta-button">Share Your Learning Needs</a>
+            </div>
+        </div>
+    </header>
+
+    <main class="container">
+        <section class="features">
+            <div class="feature-card">
+                <div class="icon"><i class="fas fa-book-open"></i></div>
+                <h3>Learn From Basics</h3>
+                <p>Start from zero and build a solid foundation in Qlik with structured learning paths designed for beginners.</p>
+            </div>
+            <div class="feature-card">
+                <div class="icon"><i class="fas fa-project-diagram"></i></div>
+                <h3>Practical Examples</h3>
+                <p>Apply your knowledge with real-world examples and projects that demonstrate Qlik's powerful capabilities.</p>
+            </div>
+            <div class="feature-card">
+                <div class="icon"><i class="fas fa-users"></i></div>
+                <h3>Community Support</h3>
+                <p>Join a community of fellow beginners and experienced developers to share insights and get help.</p>
+            </div>
+        </section>
+
+        <section id="feedback" class="feedback-section">
+            <h2>Help Shape Our Content</h2>
+            <p>What Qlik topics would you like to learn about? Share your suggestions and vote on others' ideas to help us create the most valuable content for beginners.</p>
+            
+            <div class="embed-container">
+                <!-- Replace this with your actual Google Sheet embed code -->
+                <img src="/api/placeholder/800/500" alt="Google Sheet Embed Placeholder" style="width:100%;height:100%;object-fit:cover;" />
+            </div>
+        </section>
+
+        <section class="about-section">
+            <h2>About This Resource</h2>
+            <p>This website is dedicated to helping aspiring Qlik developers master the fundamentals of Qlik Sense and QlikView. As the business intelligence landscape evolves, Qlik remains one of the most powerful tools for data visualization and analysis.</p>
+            <p>Whether you're just starting your BI journey or looking to expand your skills, our goal is to provide clear, practical guidance that helps you become proficient in Qlik technologies.</p>
+        </section>
+
+        <section class="newsletter">
+            <h2>Stay Updated</h2>
+            <p>Subscribe to our newsletter to receive the latest tutorials, tips, and resources for Qlik beginners.</p>
+            <form class="newsletter-form">
+                <input type="email" placeholder="Your email address" required>
+                <button type="submit">Subscribe</button>
+            </form>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="social-links">
+                <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                <a href="#" class="social-link"><i class="fab fa-linkedin"></i></a>
+                <a href="#" class="social-link"><i class="fab fa-github"></i></a>
+                <a href="#" class="social-link"><i class="fab fa-youtube"></i></a>
+            </div>
+            <p>© <span id="year">2025</span> Qlik Beginners. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <a href="#" class="back-to-top" id="back-to-top">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+
+    <script>
+        // Update copyright year
+        document.getElementById('year').textContent = new Date().getFullYear();
+        
+        // Back to top functionality
+        window.addEventListener('scroll', function() {
+            const backToTop = document.getElementById('back-to-top');
+            if (window.pageYOffset > 300) {
+                backToTop.classList.add('visible');
+            } else {
+                backToTop.classList.remove('visible');
+            }
+        });
+        
+        document.getElementById('back-to-top').addEventListener('click', function(e) {
+            e.preventDefault();
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+    </script>
+</body>
+</html>
