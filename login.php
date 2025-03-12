@@ -239,5 +239,42 @@ if (isset($_GET['redirect'])) {
             });
         });
     </script>
+
+<div class="subscription-container">
+    <div class="subscription-plan">
+        <h3>Free</h3>
+        <p class="price">$0 Forever</p>
+        <ul>
+            <li>Basic learning resources</li>
+            <li>Preview of premium content</li>
+            <li>Community access</li>
+        </ul>
+        <button class="subscribe-button">Get Started</button>
+    </div>
+    
+    <div class="subscription-plan">
+        <h3>Monthly</h3>
+        <p class="price">$9.99/month</p>
+        <ul>
+            <li>Access to all premium chapters</li>
+            <li>New tutorials every month</li>
+            <li>Cancel anytime</li>
+        </ul>
+        <button class="subscribe-button">Subscribe Monthly</button>
+    </div>
+
+    <div class="subscription-plan">
+        <h3>Yearly</h3>
+        <p class="price">$99/year <span style="font-size: 0.8rem; color: #888;">Save 17%</span></p>
+        <ul>
+            <li>Access to all premium chapters</li>
+            <li>New tutorials every month</li>
+            <li>Priority support</li>
+            <li>Exclusive webinars</li>
+        </ul>
+        <button class="subscribe-button">Subscribe Yearly</button>
+    </div>
+</div>
+
 </body>
 </html>

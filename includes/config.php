@@ -1,6 +1,6 @@
 <?php
 // Database configuration
-define('DB_HOST', 'localhost');
+define('DB_HOST', 'lcp-33.controlpanel.si');
 define('DB_USER', 'univer78_admin');
 define('DB_PASS', 'For33#Fun!');
 define('DB_NAME', 'univer78_qlik');
